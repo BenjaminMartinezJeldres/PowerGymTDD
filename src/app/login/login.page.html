@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="form" novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked"> Email</ion-label>
+        <ion-input formControlName=" email">  </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked"> Password</ion-label>
+        <ion-input formControlName=" password">  </ion-input>
+      </ion-item>
+    </ion-list>
+     <ion-row>
+      <ion-col>
+        <ion-button expand="block">Login</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="block">Register</ion-button>
+      </ion-col>
+     </ion-row>
+  </form>
+ 
+</ion-content>
+ 
