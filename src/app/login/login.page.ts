@@ -17,10 +17,17 @@ export class LoginPage implements OnInit {
 
   constructor( 
     private formBuilder : FormBuilder
-    ) 
-    {}
+    ) {}
 
   ngOnInit() {
   }
 
+  login(){
+    if (this.form.valid){
+      const{email,password}=this.form.getRawValue();
+      console.log(email,password);
+    }else{
+      this.form.markAllAsTouched();
+    }
+  }
 }

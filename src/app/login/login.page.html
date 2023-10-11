@@ -4,27 +4,25 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <form [formGroup]="form" novalidate>
+<ion-content class="ion-padding" >
+  <form [formGroup]="form" novalidate (ngSubmit)="login()">
     <ion-list>
       <ion-item>
-        <ion-label position="stacked"> Email</ion-label>
-        <ion-input formControlName=" email">  </ion-input>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input formControlName="email"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="stacked"> Password</ion-label>
-        <ion-input formControlName=" password">  </ion-input>
+        <ion-label position="stacked">Password</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
       </ion-item>
     </ion-list>
-     <ion-row>
+    <ion-row>
       <ion-col>
-        <ion-button expand="block">Login</ion-button>
+        <ion-button type="submit" expand="block">Login</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button expand="block">Register</ion-button>
+        <ion-button routerLink="/register" type="button" expand="block">Register</ion-button>
       </ion-col>
-     </ion-row>
+    </ion-row>
   </form>
- 
 </ion-content>
- 
