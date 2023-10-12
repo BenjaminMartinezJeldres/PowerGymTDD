@@ -19,17 +19,11 @@ Antes de comenzar, asegúrate de tener lo siguiente instalado en tu sistema:
 ### 1. Clona el repositorio PowerGymTDD
 
 Abre una terminal y clona el repositorio de ejemplo desde GitHub utilizando el siguiente comando:
-
-```bash
 git clone https://github.com/BenjaminMartinezJeldres/PowerGymTDD.git
 
 
 
-docker build -t <nombre-de-la-imagen> .
-docker run –name <nombre-de-la-imagen> -p 8080:8080 <nombre-de-la-imagen>
-Ejemplo : docker run --name prueba-docker -p 8080:8080 prueba-docker
-
-
+### 2. Crear un archivo Dockerfile en el proyecto con los siguientes datos
 
 # Usa la imagen base de Node.js 14
 FROM node:latest
@@ -57,10 +51,18 @@ CMD [ "http-server", "-p", "8080", "www" ]
 
 
 
+### 3. Comandos Construcción Docker
+
+docker build -t <nombre-de-la-imagen> .
+docker run –name <nombre-de-la-imagen> -p 8080:8080 <nombre-de-la-imagen>
+
+*Ejemplo : docker run --name prueba-docker -p 8080:8080 prueba-docker
 
 
 
 
+
+```bash
 
 
 
