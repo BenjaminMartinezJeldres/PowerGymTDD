@@ -66,7 +66,17 @@ docker run –name <nombre-de-la-imagen> -p 8080:8080 <nombre-de-la-imagen>
 
 
 
-
+PS C:\Users\genar\Desktop\PowerGymTDD> docker images
+REPOSITORY      TAG       IMAGE ID       CREATED       SIZE
+prueba-docker   latest    77b1c61ec417   3 hours ago   2.14GB
+PS C:\Users\genar\Desktop\PowerGymTDD> docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+PS C:\Users\genar\Desktop\PowerGymTDD> docker ps -a
+CONTAINER ID   IMAGE           COMMAND                  CREATED              STATUS                      PORTS     NAMES
+356e15b7d0ef   prueba-docker   "docker-entrypoint.s…"   About a minute ago   Exited (0) 34 seconds ago             prueba-docker
+PS C:\Users\genar\Desktop\PowerGymTDD> docker start 356e15b7d0ef
+356e15b7d0ef
+PS C:\Users\genar\Desktop\PowerGymTDD>
 
 
 
