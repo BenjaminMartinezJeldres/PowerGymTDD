@@ -27,6 +27,7 @@ git clone https://github.com/BenjaminMartinezJeldres/PowerGymTDD.git
 
 docker build -t <nombre-de-la-imagen> .
 docker run –name <nombre-de-la-imagen> -p 8080:8080 <nombre-de-la-imagen>
+Ejemplo : docker run --name prueba-docker -p 8080:8080 prueba-docker
 
 
 
