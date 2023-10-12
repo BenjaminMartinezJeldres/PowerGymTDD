@@ -25,8 +25,8 @@ git clone https://github.com/BenjaminMartinezJeldres/PowerGymTDD.git
 
 
 
-docker build -t ionic-docker .
-docker run –name ionic-docker -p 8080:8080 ionic-docker
+docker build -t <nombre-de-la-imagen> .
+docker run –name <nombre-de-la-imagen> -p 8080:8080 <nombre-de-la-imagen>
 
 
 
