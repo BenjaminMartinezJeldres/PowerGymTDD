@@ -1,0 +1,19 @@
+ion-content {
+    --background: #ffffff; /* Color blanco */
+  }
+  
+  .image-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 20%; /* Asegura que ocupe toda la altura disponible */
+  }
+  
+  img {
+    max-width: 100%; /* Asegura que la imagen no sea más ancha que el contenedor */
+    height: auto;
+  }
+  ion-input {
+    --background: #ffffff; /* Cambia el fondo de los campos de entrada a blanco */
+  }
+  

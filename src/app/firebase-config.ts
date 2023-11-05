@@ -10,16 +10,14 @@ import { getAnalytics } from "firebase/analytics";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-export const firebaseConfig = {
-  apiKey: "AIzaSyDxdjrimfN_KDsmCwa4ATgCF4-qvC9Ykag",
-  authDomain: "powergym-75bd7.firebaseapp.com",
-  projectId: "powergym-75bd7",
-  storageBucket: "powergym-75bd7.appspot.com",
-  messagingSenderId: "548776827841",
-  appId: "1:548776827841:web:9339429e17f6e3e1586d40",
-  measurementId: "G-4W9G2XFFZV"
-};
-
+const firebaseConfig = {
+    apiKey: "AIzaSyBi_4pSsEjBAAOSCWJy0Q3sgT3X43t1Uno",
+    authDomain: "powergymmobile-76069.firebaseapp.com",
+    projectId: "powergymmobile-76069",
+    storageBucket: "powergymmobile-76069.appspot.com",
+    messagingSenderId: "223598682572",
+    appId: "1:223598682572:web:1fda19cc2c55619889fd69"
+  };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "powergymmobile-76069": {
+      "hosting": {
+        "app": [
+          "powergymmobile-76069"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "powergymmobile-76069"
+  }
+}

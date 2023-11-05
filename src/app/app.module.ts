@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicModule } from '@ionic/angular';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { AngularFireModule } from '@angular/fire/compat'; // Importa AngularFireModule
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { RouteReuseStrategy } from '@angular/router';
 
-// Importa la configuración de Firebase desde tu archivo firebase-config.ts
-import { firebaseConfig } from './firebase-config'; // Importa tu configuración de Firebase
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { AuthGuardModule } from '@angular/fire/auth-guard';
+
+
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,13 +19,12 @@ import { firebaseConfig } from './firebase-config'; // Importa tu configuración
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-
-    // Configura AngularFireModule con las credenciales de Firebase
-    AngularFireModule.initializeApp(firebaseConfig), // Configura AngularFire con tus credenciales de Firebase
-    AngularFirestoreModule
-  
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    AuthGuardModule
   ],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
-
 })
 export class AppModule {}
