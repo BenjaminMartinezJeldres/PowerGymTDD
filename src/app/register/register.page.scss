@@ -1,4 +1,12 @@
 ion-content {
     --background: #ffffff; /* Color blanco */
   }
-  
+  ion-input {
+    --background: #ffffff; /* Cambia el fondo de los campos de entrada a blanco */
+    --color: #0a0909; /* Cambia el color del texto a blanco */
+    --placeholder-color: #ffffff; /* Cambia el color del placeholder a blanco */
+    --placeholder-opacity: 1; /* Asegura que el placeholder no tenga transparencia */
+    --border-color: #ffffff; /* Cambia el color del borde a blanco */
+    --border-style: solid; /* El estilo del borde será sólido */
+    --border-width: 1px; /* El ancho del borde será de 1px */
+}

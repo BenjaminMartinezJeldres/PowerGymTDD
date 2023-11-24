@@ -1,7 +1,4 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
@@ -21,11 +18,34 @@
     </ion-list>
     <ion-row>
       <ion-col>
-        <ion-button type="submit" expand="block">Login</ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button routerLink="/register" type="button" expand="block">Register</ion-button>
+        <ion-button type="submit" expand="block">Iniciar sesión</ion-button>
       </ion-col>
     </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <!-- Botón para registro -->
+        <ion-button routerLink="/register" expand="block" fill="clear">
+          Registrarse
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <!-- Separador -->
+    <div class="google-login-separator">
+      <div class="line"></div>
+      <div class="text">O con</div>
+      <div class="line"></div>
+    </div>
+
+    <!-- Botón de inicio de sesión con Google -->
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" color="light" (click)="signInWithGoogle()">
+          <ion-icon slot="start" name="logo-google"></ion-icon>
+          Iniciar sesión con Google
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
   </form>
 </ion-content>

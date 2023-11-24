@@ -1,19 +1,96 @@
 ion-content {
-    --background: #ffffff; /* Color blanco */
-  }
-  
-  .image-container {
+    --background: #ffffff; // Color blanco
+}
+
+.image-container {
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-    height: 20%; /* Asegura que ocupe toda la altura disponible */
-  }
-  
-  img {
-    max-width: 100%; /* Asegura que la imagen no sea más ancha que el contenedor */
+    justify-content: center; // Centra horizontalmente
+    align-items: center; // Centra verticalmente
+    height: 20%; // Asegura que ocupe toda la altura disponible
+}
+
+img {
+    max-width: 100%; // Asegura que la imagen no sea más ancha que el contenedor
     height: auto;
+}
+
+ion-input {
+    --background: #ffffff; // Cambia el fondo de los campos de entrada a blanco
+    --color: #0a0909; // Cambia el color del texto a blanco
+    --placeholder-color: #8f8f8f; // Cambia el color del placeholder (ajustado a gris claro)
+    --placeholder-opacity: 1; // Asegura que el placeholder no tenga transparencia
+    --border-color: #d4d4d4; // Cambia el color del borde (ajustado a gris claro)
+    --border-style: solid; // El estilo del borde será sólido
+    --border-width: 1px; // El ancho del borde será de 1px
+}
+
+ion-label {
+    color: #000000; // Cambia el color de la etiqueta a negro (ajustado para contraste)
+}
+
+ion-button {
+    --border-radius: 4px; // Ajusta el radio del borde según sea necesario
+
+    &[color="light"] {
+        --background: #fff; // Fondo blanco para el botón de Google
+        --color: #000; // Texto negro
+        --border-style: solid;
+        --border-width: 1px;
+        --border-color: #d4d4d4; // Un ligero borde para el botón de Google
+    }
+}
+
+.google-button {
+    --background: transparent;
+    --color: #737373;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    text-transform: none;
+    height: 44px;
+    font-size: 14px;
+    font-weight: normal;
+    width: 100%;
+    margin-top: 20px; // Ajusta según sea necesario
+
+    ion-icon {
+        color: #4285F4;
+        margin-right: 8px; // Ajusta según sea necesario
+    }
+}
+
+.or-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+
+    .line {
+        flex: 1;
+        height: 1px;
+        background-color: #e5e5e5;
+    }
+
+    .or-text {
+        margin: 0 10px;
+        color: #737373;
+    }
+}
+
+// Aquí se añaden estilos para el separador que dice "O con"
+.google-login-separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+
+  .line {
+    flex: 1;
+    height: 1px;
+    background-color: #e0e0e0;
   }
-  ion-input {
-    --background: #ffffff; /* Cambia el fondo de los campos de entrada a blanco */
+
+  .text {
+    margin: 0 10px;
+    color: #8f8f8f;
   }
-  
+}

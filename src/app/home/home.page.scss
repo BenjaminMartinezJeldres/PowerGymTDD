@@ -1,6 +1,9 @@
 ion-content {
-    --background: #ffffff; /* Color blanco */
+  --background: none; // Remueve el fondo predeterminado
+  background: url('/assets/icon/GymPesoMuerto.png') no-repeat center center / cover; // Asegúrate de reemplazar esto con el camino correcto a tu imagen
+
+  .home-title {
+    color: #ffffff; // Un color que contraste con tu imagen de fondo
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); // Opcional: sombra de texto para mejorar la legibilidad
   }
-  ion-input {
-    --background: #ffffff; /* Cambia el fondo de los campos de entrada a blanco */
-  }
+}

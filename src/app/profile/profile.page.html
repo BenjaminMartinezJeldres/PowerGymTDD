@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <!-- Botón para volver al home -->
+    <ion-buttons slot="start">
+      <ion-button routerLink="/home">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>PROFILE</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- El resto de tu código... -->
+
+
+<ion-content>
+  <!-- Profile Header -->
+  <div class="profile-header">
+    <ion-avatar class="user-avatar" (click)="changePicture()">
+      <img [src]="userProfileImage" />
+    </ion-avatar>
+    <h2 class="user-name">James William</h2>
+    <p class="user-handle">@jameswilliam</p>
+    <ion-button fill="clear" class="edit-button">
+      <ion-icon name="create-outline" slot="start"></ion-icon>
+      Editar
+    </ion-button>
+  </div>
+
+  <!-- Profile Menu -->
+  <ion-list class="profile-menu">
+    <ion-item routerLink="/dashboard">
+      <ion-icon name="grid-outline" slot="start"></ion-icon>
+      Dashboard
+    </ion-item>
+    <ion-item routerLink="/payment-history">
+      <ion-icon name="card-outline" slot="start"></ion-icon>
+      Payment History
+    </ion-item>
+    <ion-item routerLink="/statistics">
+      <ion-icon name="stats-chart-outline" slot="start"></ion-icon>
+      Statistics
+    </ion-item>
+    <ion-item routerLink="/rewards">
+      <ion-icon name="gift-outline" slot="start"></ion-icon>
+      Reward
+    </ion-item>
+    <ion-item routerLink="/logout">
+      <ion-icon name="log-out-outline" slot="start"></ion-icon>
+      Logout
+    </ion-item>
+  </ion-list>
+</ion-content>
