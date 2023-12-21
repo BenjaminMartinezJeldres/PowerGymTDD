@@ -1,6 +1,27 @@
+
 ion-content {
-    --background: #ffffff; // Color blanco
+    --ion-background-color: #fff; /* Esto debería hacer el fondo de ion-content blanco */
 }
+ion-item {
+    --background: #fff; // Establece el fondo de los elementos ion-item a blanco
+    --color: #000; // Establece el color del texto, si es necesario
+    --placeholder-color: #888; // Cambia el color del placeholder si es necesario
+
+    ion-label {
+        color: #000; // Establece el color de los ion-label si es necesario
+    }
+}
+
+ion-input {
+    --background: #fff; // Establece el fondo de los elementos ion-input a blanco
+    --color: #000; // Establece el color del texto de entrada
+    --placeholder-color: #888; // Cambia el color del placeholder si es necesario
+
+    &:focus {
+        --border-color: #387ef5; // Cambia el color del borde al enfocar, si es necesario
+    }
+}
+
 
 .image-container {
     display: flex;
@@ -14,29 +35,21 @@ img {
     height: auto;
 }
 
-ion-input {
-    --background: #ffffff; // Cambia el fondo de los campos de entrada a blanco
-    --color: #0a0909; // Cambia el color del texto a blanco
-    --placeholder-color: #8f8f8f; // Cambia el color del placeholder (ajustado a gris claro)
-    --placeholder-opacity: 1; // Asegura que el placeholder no tenga transparencia
-    --border-color: #d4d4d4; // Cambia el color del borde (ajustado a gris claro)
-    --border-style: solid; // El estilo del borde será sólido
-    --border-width: 1px; // El ancho del borde será de 1px
-}
-
 ion-label {
     color: #000000; // Cambia el color de la etiqueta a negro (ajustado para contraste)
 }
 
 ion-button {
-    --border-radius: 4px; // Ajusta el radio del borde según sea necesario
+    --background: #ff0000; /* Color de fondo rojo */
+    --color: #ffffff; /* Color del texto blanco */
+    --ripple-color: #ffffff; /* Color del efecto de onda para interacciones táctiles */
 
-    &[color="light"] {
-        --background: #fff; // Fondo blanco para el botón de Google
-        --color: #000; // Texto negro
-        --border-style: solid;
-        --border-width: 1px;
-        --border-color: #d4d4d4; // Un ligero borde para el botón de Google
+    &:hover {
+        --background-hover: #e60000; /* Color de fondo al pasar el ratón */
+    }
+
+    &:active {
+        --background-activated: #cc0000; /* Color de fondo al hacer clic o tocar */
     }
 }
 
@@ -53,7 +66,7 @@ ion-button {
     margin-top: 20px; // Ajusta según sea necesario
 
     ion-icon {
-        color: #4285F4;
+        color: #b82812;
         margin-right: 8px; // Ajusta según sea necesario
     }
 }
