@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { LoadingController } from '@ionic/angular';
+import { InteractionService } from '../services/interaction.service';
+import { UsuarioService } from '../services/usuario.service';
 
 @Component({
   selector: 'app-login',
@@ -15,45 +18,56 @@ export class LoginPage implements OnInit {
     password: ['', [Validators.required]],
   });
 
+  loading:any
+
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService, // Nombre de instancia corregido
+    private authService: AuthService,
     private router: Router,
+    private interaction: InteractionService,
+    private usuarioService: UsuarioService
   ) {}
 
   ngOnInit() {
   }
 
-  // Método para iniciar sesión con email y contraseña
   login() {
     if (this.form.valid) {
+      this.interaction.presentLoading('Cargando...')
       const email = this.form.get('email')?.value;
       const password = this.form.get('password')?.value;
 
       if (email && password) {
         this.authService.login(email, password)
           .then(() => {
-            this.router.navigate(['/home']);
+            this.interaction.closeLoading()
+            this.router.navigate(['/home'])
+            this.interaction.presentToast('Sesión iniciada con éxito!')
           })
           .catch(error => {
-            console.error(error);
+            console.log(error.code)
+            if(error.code == 'auth/invalid-login-credentials') {
+              this.interaction.closeLoading()
+              console.log('Email o contraseña incorrecta')
+              this.interaction.presentToast('Email o contraseña incorrecta')
+            }
           });
-      } else {
-        console.error('Email and password are required');
-      }
-    } else {
-      this.form.markAllAsTouched();
-    }
+      } else console.error('Email y contraseña son campos requeridos')
+    } else this.form.markAllAsTouched();
   }
 
-  // Método para iniciar sesión con Google
   signInWithGoogle() {
-    this.authService.loginWithGoogle().then((result) => {
+    this.interaction.presentLoading('Esperando respuesta')
+    this.authService.loginWithGoogle()
+    .then((result) => {
       if (result.user) {
-        this.router.navigate(['/home']);
+        console.log(result)
+        this.interaction.closeLoading()
+        this.router.navigate(['/home'])
+        this.interaction.presentToast('Sesión iniciada con éxito!')
       }
     }).catch(error => {
-      console.error(error);
-    });
+      console.error(error)
+    })
   }
 }

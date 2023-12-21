@@ -1,44 +1,115 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="end">
-      <ion-menu-button></ion-menu-button>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title >Máquinas</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="home-menu"></ion-menu-button>
     </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar showCancelButton (ionInput)="filtrarMaquinas($event)" animated="true" placeholder="Buscar máquinas..."></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  
+  <ion-header collapse="condense">
+    <ion-toolbar>   
+      <ion-title size="large">Máquinas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="glass-content">
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let m of maquinas" size-lg="4" size-md="6" size-sm="12" size="12">
+
+          
+          <ion-card>
+            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+            <ion-card-header>
+              <ion-card-title>{{m.nombre}}</ion-card-title>
+              <ion-card-subtitle>{{m.id}}</ion-card-subtitle>
+            </ion-card-header>
+          
+            <ion-card-content>
+              Descripción
+            </ion-card-content>
+
+            <ion-button color='primary' routerLink="/maquina-detail/{{m.id}}" fill="clear">Detalle</ion-button>
+          </ion-card>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+  </div>
+
+  
+
+  
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+    <!-- <ion-fab-list side="top">
+      <ion-fab-button>
+        <ion-icon name="document"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="color-palette"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="globe"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list> -->
+  </ion-fab>
   
 </ion-content>
 
-<ion-tabs>
-  <ion-tab-bar slot="bottom">
 
-    <ion-tab-button tab="camera" routerLink="/camera">
-      <ion-icon name="qr-code-outline"></ion-icon>
-      <ion-label>Cámara</ion-label>
+
+
+
+<ion-footer [translucent]="true">
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+    
+        <ion-tab-button tab="camera" routerLink="/camera">
+          <ion-icon name="qr-code-outline"></ion-icon>
+          <ion-label>Cámara</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="add" routerLink="/add">
+          <ion-icon name="barbell-outline"></ion-icon>
+          <ion-label>Máquinas</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="home" routerLink="/home">
+          <ion-icon name="home-outline"></ion-icon>
+          <ion-label>Inicio</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="settings" routerLink="/settings">
+          <ion-icon name="nutrition-outline"></ion-icon>
+          <ion-label>Nutrición</ion-label>
+        </ion-tab-button>
+    
+        <!-- El botón de perfil en tu barra de navegación -->
+    <ion-tab-button tab="profile" routerLink="/profile">
+      <ion-icon name="person-circle"></ion-icon>
+      <ion-label>Perfil</ion-label>
     </ion-tab-button>
-
-    <ion-tab-button tab="machines" routerLink="/machines">
-      <ion-icon name="barbell-outline"></ion-icon>
-      <ion-label>Máquinas</ion-label>
-    </ion-tab-button>    
-
-    <ion-tab-button tab="home" routerLink="/home">
-      <ion-icon name="home-outline"></ion-icon>
-      <ion-label>Inicio</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="settings" routerLink="/settings">
-      <ion-icon name="nutrition-outline"></ion-icon>
-      <ion-label>Nutrición</ion-label>
-    </ion-tab-button>
-
-    <!-- El botón de perfil en tu barra de navegación -->
-<ion-tab-button tab="profile" routerLink="/profile">
-  <ion-icon name="person-circle"></ion-icon>
-  <ion-label>Perfil</ion-label>
-</ion-tab-button>
-
-
-  </ion-tab-bar>
-</ion-tabs>
+    
+    
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-title>PowerGym 2023</ion-title>
+  </ion-toolbar>
+  
+</ion-footer>

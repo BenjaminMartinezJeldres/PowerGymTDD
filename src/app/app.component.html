@@ -1,30 +1,31 @@
 <ion-app>
-  <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
-      <ion-content>
+    <ion-menu menuId="home-menu" contentId="home-menu" type="overlay">
         <ion-list id="inbox-list">
-          <ng-container *ngIf="user$ | async as user">
-            <ion-list-header>Hola</ion-list-header>
-            <ion-note>{{ user.email }}</ion-note>
+          <ion-header>
+            <ion-toolbar  color="primary">
+              <ion-title>Menú</ion-title>
+            </ion-toolbar>
+          </ion-header>
+
+          <ng-container *ngIf="profile">
+            {{ profile }}
           </ng-container>
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-          <ion-menu-toggle auto-hide="false">
-            <ion-item (click)="logout()" lines="none">
-              <ion-icon slot="start" icon="log-out"></ion-icon>
-              <ion-label>Log out</ion-label>
+            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false"
+              routerLinkActive="selected">
+              <ion-icon color="primary" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-label color="primary">{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
 
+        <ion-button fill="clear" (click)="logout()">
+          Cerrar sesión
+          <ion-icon slot="start" icon="log-out"></ion-icon>
+        </ion-button>
 
-      </ion-content>
+
     </ion-menu>
-    <ion-router-outlet id="main-content"></ion-router-outlet>
-  </ion-split-pane>
+    <ion-router-outlet id="home-menu"></ion-router-outlet>
 </ion-app>

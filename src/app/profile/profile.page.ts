@@ -10,14 +10,13 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-  userProfileImage: string = 'path-to-default-image.jpg'; // Asegúrate de cambiar esto a una ruta válida de imagen por defecto.
+   userProfileImage: string = 'path-to-default-image.jpg'; // Asegúrate de cambiar esto a una ruta válida de imagen por defecto.
   userEmail: string | null = null;
 
   constructor(
-    
     private authService: AuthService,
     private auth: Auth
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.authService.authState$.subscribe((user: User | null) => {
@@ -51,4 +50,5 @@ export class ProfilePage implements OnInit {
       // Si hay un error o el proceso se cancela, 'userProfileImage' permanecerá con su valor por defecto.
     }
   }
+
 }

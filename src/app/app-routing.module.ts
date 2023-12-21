@@ -12,10 +12,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  },
-  {
     path: 'login',
     canActivate: [ AuthGuard ],
     data: { authGuardPipe : redirectLoggedInToHome },
@@ -33,25 +29,22 @@ const routes: Routes = [
     data: { authGuardPipe : redirectUnauthorizedToLogin },
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
-  // AppRoutingModule
-{
-  path: 'machines',
-  loadChildren: () => import('./machines/machines.module').then( m => m.MachinesPageModule)
-},
+  {
+    path: 'maquina-detail',
+    loadChildren: () => import('./maquina-detail/maquina-detail.module').then( m => m.MaquinaDetailPageModule)
+  },
   {
     path: 'camera',
     loadChildren: () => import('./camera/camera.module').then( m => m.CameraPageModule)
   },
-
-
+  {
+    path: 'camera',
+    loadChildren: () => import('./camera/camera.module').then((m) => m.CameraPageModule),
+  },
   {
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   },
-  
-
-  // ...otras rutas
-
 ];
 
 @NgModule({
