@@ -1,21 +1,30 @@
+//profile.page.ts
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { Auth } from '@angular/fire/auth';
 import { User } from 'firebase/auth';
 import { AuthService } from '../services/auth.service';
-
+import { UsuarioService } from '../services/usuario.service';
+import { Usuarios } from '../interfaces/usuarios';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-   userProfileImage: string = 'path-to-default-image.jpg'; // Asegúrate de cambiar esto a una ruta válida de imagen por defecto.
+  userProfileImage: string = 'path-to-default-image.jpg'; // Asegúrate de cambiar esto a una ruta válida de imagen por defecto.
   userEmail: string | null = null;
+  userName: string = '';
+  userExpirationDate: string = '';
+  userBirthdate: string = '';
+  userPhoneNumber: string = '';
+  userRUT: string = '';
+  userMemberSince: string = '';
 
   constructor(
     private authService: AuthService,
-    private auth: Auth
+    private auth: Auth,
+    private usuarioService: UsuarioService // Inyecta el UsuarioService aquí
   ) { }
 
   ngOnInit() {
@@ -30,6 +39,7 @@ export class ProfilePage implements OnInit {
       }
     });
   }
+  
 
   async changePicture() {
     try {

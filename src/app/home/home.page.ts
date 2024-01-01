@@ -1,3 +1,4 @@
+//home.page.ts
 import { Component, OnInit } from '@angular/core';
 import { MaquinaService } from '../services/maquina.service';
 import { Maquinas } from '../interfaces/maquinas';

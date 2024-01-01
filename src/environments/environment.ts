@@ -1,13 +1,13 @@
 export const environment = {
   firebase: {
-    apiKey: "AIzaSyAoUT-l5Dybjj3aqtDacfzzFwhJiKIhYQ4",
-    authDomain: "ionic-8394f.firebaseapp.com",
-    databaseURL: "https://ionic-8394f-default-rtdb.firebaseio.com",
-    projectId: "ionic-8394f",
-    storageBucket: "ionic-8394f.appspot.com",
-    messagingSenderId: "586355332066",
-    appId: "1:586355332066:web:b4b7009058a02ead9c9fbb",
-    measurementId: "G-5X89R4W1L6"
+    apiKey: "AIzaSyBi_4pSsEjBAAOSCWJy0Q3sgT3X43t1Uno",
+  authDomain: "powergymmobile-76069.firebaseapp.com",
+  databaseURL: "https://powergymmobile-76069-default-rtdb.firebaseio.com",
+  projectId: "powergymmobile-76069",
+  storageBucket: "powergymmobile-76069.appspot.com",
+  messagingSenderId: "223598682572",
+  appId: "1:223598682572:web:1fda19cc2c55619889fd69",
+  measurementId: "G-W4DD1VH20C"
   },
   production: true
 };

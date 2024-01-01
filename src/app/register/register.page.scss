@@ -1,3 +1,4 @@
+//register.page.scss
 ion-item {
     --background: #fff; // Establece el fondo de los elementos ion-item a blanco
     --color: #000; // Establece el color del texto, si es necesario
@@ -102,4 +103,39 @@ ion-button {
     margin: 0 10px;
     color: #8f8f8f;
   }
+}
+ion-datetime {
+    ion-datetime {
+  --color: #000; // Cambia el color del texto a negro
+  --padding-start: 0; // Reduce el padding si es necesario
+  --padding-end: 0; // Reduce el padding si es necesario
+  --placeholder-opacity: 0.8; // Ajusta la opacidad del placeholder
+  --placeholder-color: #fff6f6; // Cambia el color del placeholder si es necesario
+  --text-color: #000; // Cambia el color del texto si es necesario
+  --background: #030303; // Establece el fondo a blanco si es necesario
+    }
+  &::part(datetime-text) {
+    // Ajusta el estilo del texto dentro de ion-datetime si es necesario
+    font-size: 1rem; // Ajusta el tamaño de la fuente
+    color: #000; // Asegúrate de que el texto sea legible
+  }
+  
+  &::part(placeholder) {
+    // Ajusta el estilo del placeholder dentro de ion-datetime si es necesario
+    font-style: italic; // Por ejemplo, para hacer el texto del placeholder en cursiva
+  }
+  &::part(button) {
+    color: #000; // Establece el color del texto de los botones a negro
+  }
+}
+
+// Si necesitas ajustes adicionales para el picker en sí que aparece al clicar en ion-datetime
+ion-picker {
+  // Aquí puedes añadir estilos para el picker si es necesario
+}
+
+// Si encuentras que necesitas ajustar el espacio alrededor de ion-datetime para evitar la superposición
+.custom-datetime-container {
+  margin-top: 20px; // Añade un espacio adicional en la parte superior si es necesario
+  margin-bottom: 10px; // Añade un espacio adicional en la parte inferior si es necesario
 }

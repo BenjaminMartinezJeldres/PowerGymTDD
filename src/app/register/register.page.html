@@ -1,3 +1,4 @@
+<!--register.page.html-->
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
@@ -8,17 +9,50 @@
 </ion-header>
 
 <ion-content class="ion-padding">
- <form [formGroup]="form" novalidate (ngSubmit)="register()">
+  <form [formGroup]="form" (ngSubmit)="register()">
+    <ion-item>
       <ion-label position="stacked">Nombres</ion-label>
-      <ion-input formControlName="name"></ion-input>
+      <ion-input formControlName="name" placeholder="Escribe tu nombre"></ion-input>
+    </ion-item>
+    <ion-item>
       <ion-label position="stacked">Apellidos</ion-label>
-      <ion-input formControlName="lastname"></ion-input>
+      <ion-input formControlName="lastname" placeholder="Escribe tus apellidos"></ion-input>
+    </ion-item>
+    <!----------------------    Rut ---------------------------->
+    <ion-item>
+      <ion-label position="stacked">Rut</ion-label>
+      <ion-input formControlName="rut" placeholder="Escribe tu rut"></ion-input>
+    </ion-item>
+    <!----------------------    NAcimiento ---------------------------->
+
+    <ion-item>
+      <ion-label position="floating">Fecha de Nacimiento</ion-label>
+        <p></p>  
+    
+    <ion-datetime displayFormat="DD MMM YYYY" formControlName="birthdate"></ion-datetime>
+    <p></p>  
+  </ion-item>
+    <!----------------------    Telefono ---------------------------->
+
+    <ion-item>
+      <ion-label position="stacked">Número de Teléfono</ion-label>
+      <ion-input formControlName="phoneNumber" placeholder="Escribe tu número celular" type="tel"></ion-input>
+    </ion-item>
+    <!----------------------    Correo ---------------------------->
+    <ion-item>
       <ion-label position="stacked">Correo</ion-label>
-      <ion-input formControlName="email"></ion-input>
+      <ion-input formControlName="email" placeholder="Escribe tu correo electrónico"></ion-input>
+    </ion-item>
+    <!----------------------    Contraseña ---------------------------->
+    <ion-item>
       <ion-label position="stacked">Ingresa una contraseña</ion-label>
-      <ion-input type="password" formControlName="password"></ion-input>
-      <ion-label position="stacked">Confirma tu contraseña</ion-label>
-      <ion-input type="password" formControlName="confirmPassword"></ion-input>
-  <ion-button type="submit" expand="block">Registrarse</ion-button>
- </form>
+      <ion-input type="password" formControlName="password" placeholder="Ingresa tu contraseña"></ion-input>
+
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Confirmar Contraseña</ion-label>
+      <ion-input type="password" formControlName="confirmPassword" placeholder="Confirma tu contraseña"></ion-input>
+    </ion-item>
+    <ion-button type="submit" expand="block" color="danger">Registrarse</ion-button>
+  </form>
 </ion-content>
