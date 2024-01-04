@@ -1,50 +1,22 @@
-//app-routing.modules.ts
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthGuard, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
-
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
-const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
+import { NoAuthGuard } from './guards/no-auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
+
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'auth',
     pathMatch: 'full'
   },
   {
-    path: 'login',
-    canActivate: [ AuthGuard ],
-    data: { authGuardPipe : redirectLoggedInToHome },
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    path: 'auth',
+    loadChildren: () => import('./pages/auth/auth.module').then( m => m.AuthPageModule), canActivate:[NoAuthGuard]
   },
   {
-    path: 'register',
-    canActivate: [ AuthGuard ],
-    data: { authGuardPipe : redirectLoggedInToHome },
-    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
-  },
-  {
-    path: 'home',
-    canActivate: [ AuthGuard ],
-    data: { authGuardPipe : redirectUnauthorizedToLogin },
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
-    path: 'maquina-detail',
-    loadChildren: () => import('./maquina-detail/maquina-detail.module').then( m => m.MaquinaDetailPageModule)
-  },
-  {
-    path: 'camera',
-    loadChildren: () => import('./camera/camera.module').then( m => m.CameraPageModule)
-  },
-  {
-    path: 'camera',
-    loadChildren: () => import('./camera/camera.module').then((m) => m.CameraPageModule),
-  },
-  {
-    path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+    path: 'main',
+    loadChildren: () => import('./pages/main/main.module').then( m => m.MainPageModule), canActivate:[AuthGuard]
   },
 ];
 
@@ -54,4 +26,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
