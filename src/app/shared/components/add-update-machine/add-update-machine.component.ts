@@ -18,8 +18,8 @@ export class AddUpdateMachineComponent  implements OnInit {
     id: new FormControl(''),
     image: new FormControl('', [Validators.required]),
     name: new FormControl('', [Validators.required, Validators.minLength(4)]),
-    price: new FormControl(null, [Validators.required, Validators.min(1),Validators.max(3)]),
-    soldUnits: new FormControl(null, [Validators.required, Validators.min(0)]),
+    piso: new FormControl(null, [Validators.required, Validators.min(1),Validators.max(3)]),
+    cantMaquina: new FormControl(null, [Validators.required, Validators.min(0),Validators.max(5)]),
   })
 
   firebaseSvc = inject(FirebaseService);
@@ -54,10 +54,10 @@ submit(){
   // ======== Convierte valores de tipo string a number =======
   setNumberInputs() {
 
-    let { soldUnits, price } = this.form.controls;
+    let { cantMaquina, piso } = this.form.controls;
 
-    if(soldUnits.value) soldUnits.setValue(parseFloat(soldUnits.value));
-    if(price.value) price.setValue(parseFloat(price.value));
+    if(cantMaquina.value) cantMaquina.setValue(parseFloat(cantMaquina.value));
+    if(piso.value) piso.setValue(parseFloat(piso.value));
     
   }
 

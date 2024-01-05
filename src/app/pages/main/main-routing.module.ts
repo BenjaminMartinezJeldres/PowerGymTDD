@@ -16,7 +16,15 @@ const routes: Routes = [
       {
         path: 'profile',
         loadChildren: () => import('./profile/profile.module').then(m => m.ProfilePageModule)
-      }
+      },
+      {
+        path: 'nutrition',
+        loadChildren: () => import('./nutrition/nutrition.module').then(m => m.NutritionPageModule)
+      },
+      {
+        path: 'camera',
+        loadChildren: () => import('./camera/camera.module').then(m => m.CameraPageModule)
+      },
       
     ]
   },

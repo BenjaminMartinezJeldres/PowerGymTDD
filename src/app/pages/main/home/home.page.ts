@@ -41,7 +41,7 @@ export class HomePage implements OnInit {
 
   // ====== Obtener ganancias =====
   getProfits() {
-    return this.machines.reduce((index, machine) => index + machine.price * machine.soldUnits, 0);
+    return this.machines.reduce((index, machine) => index + machine.piso * machine.cantMaquina, 0);
   }
 
   // ====== Obtener Máquinas =====
@@ -51,8 +51,8 @@ export class HomePage implements OnInit {
     this.loading = true;
 
     let query = [
-      orderBy('soldUnits', 'desc'),
-      // where('soldUnits', '>', 30)   
+      orderBy('cantMaquina', 'desc'),
+      // where('cantMaquina', '>', 30)   
     ]
 
 

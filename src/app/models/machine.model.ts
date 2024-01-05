@@ -1,12 +1,12 @@
 export interface Machine{
     name: string,
-    tipoMaquina: string,
+    /*tipoMaquina: string,
     musculo: string,
     instrucciones: string,
-    precauciones: string,
-    soldUnits:number,
-    price: number,
+    precauciones: string,*/
+    cantMaquina:number,
+    piso: number,
     image: string
     id: string,
-    nameLowerCase?: string; // Agrega esta línea
+    
 }
