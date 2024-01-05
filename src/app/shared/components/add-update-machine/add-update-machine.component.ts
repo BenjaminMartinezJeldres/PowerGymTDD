@@ -72,7 +72,7 @@ submit(){
  
       
 
-      let path = `users/${this.user.uid}/machines`
+      let path = `machines`//arreglar la ruta
 
       const loading = await this.utilsSvc.loading();
       await loading.present();
