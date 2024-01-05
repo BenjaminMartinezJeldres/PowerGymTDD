@@ -18,7 +18,7 @@ export class AddUpdateMachineComponent  implements OnInit {
     id: new FormControl(''),
     image: new FormControl('', [Validators.required]),
     name: new FormControl('', [Validators.required, Validators.minLength(4)]),
-    price: new FormControl(null, [Validators.required, Validators.min(0)]),
+    price: new FormControl(null, [Validators.required, Validators.min(1),Validators.max(3)]),
     soldUnits: new FormControl(null, [Validators.required, Validators.min(0)]),
   })
 

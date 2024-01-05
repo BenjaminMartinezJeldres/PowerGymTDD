@@ -1,3 +1,4 @@
+//main.page.ts
 import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
