@@ -3,5 +3,10 @@ export interface User{
     email: string,
     password: string,
     name: string,
-    image: string
+    lastname:string,
+    image: string,
+    rut: string;
+    height: string;
+    weight: string;
+    birthDate?: Date; // Hacer opcional
 }

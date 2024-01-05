@@ -15,7 +15,12 @@ export class SignUpPage implements OnInit {
     uid: new FormControl(''),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
-    name: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    name: new FormControl('', [Validators.required, Validators.minLength(1)]),
+   lastname:new FormControl('', [Validators.required, Validators.minLength(4)]),
+    rut: new FormControl('', [Validators.required,this.rutValidator]), // Añade validaciones específicas para RUT si es necesario
+    height: new FormControl('', [Validators.required, Validators.min(50), Validators.max(250)]),
+    weight: new FormControl('', [Validators.required, Validators.min(20), Validators.max(300)]),
+    
   })
 
   firebaseSvc = inject(FirebaseService);
@@ -23,8 +28,13 @@ export class SignUpPage implements OnInit {
 
   ngOnInit() {
   }
+// Agrega la función de validador de RUT aquí dentro de la clase
+ // Agrega la función de validador de RUT aquí dentro de la clase
+ rutValidator(control: FormControl): { [key: string]: any } | null {
+  const valid = /^\d{7,8}-[\dkK]$/.test(control.value);
+  return valid ? null : { 'invalidRut': { value: control.value } };
 
-
+}
  async submit() {
     if (this.form.valid) {
 
