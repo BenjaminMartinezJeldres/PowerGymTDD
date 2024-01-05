@@ -1,3 +1,4 @@
+//home.page.ts
 import { Component, OnInit, inject } from '@angular/core';
 import { Machine } from 'src/app/models/machine.model';
 import { User } from 'src/app/models/user.model';
@@ -5,12 +6,14 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 import { UtilsService } from 'src/app/services/utils.service';
 import { AddUpdateMachineComponent } from 'src/app/shared/components/add-update-machine/add-update-machine.component';
 import { orderBy, where } from 'firebase/firestore';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
+
+
 export class HomePage implements OnInit {
 
   firebaseSvc = inject(FirebaseService);
@@ -143,6 +146,16 @@ export class HomePage implements OnInit {
 
 
   }
+  constructor(
+    
+    private router: Router // Inyecta el servicio Router aquí
+  ) { }
+
+
+  // Función para manejar el clic en la imagen
+openMachineDetails(machineId: string) {
+  this.router.navigate(['/machine-details', { id: machineId }]);
+}
 
   filterMachines(e) {
     console.log(e)

@@ -1,3 +1,4 @@
+<!--home.page.html-->
 <app-header [showMenu]="true" title="Máquinas"></app-header>
 <ion-content [fullscreen]="true" class="ion-padding">
 
@@ -15,19 +16,6 @@
 
   <ion-searchbar showCancelButton cancelButtonText="Cancelar" (ionInput)="filterMachines($event)" animated="true" placeholder="Buscar máquinas..."></ion-searchbar>
 
-
-
-  <!-- <ion-card mode="ios" color="secondary" class="d-flex-center ion-text-center" *ngIf="!loading && machines.length">
-    <div>
-      <h5>{{machines.length}}</h5>
-      <p>Máquinas</p>
-    </div>
-    <div>
-      <h5>{{ getProfits() | currency: 'USD'}}</h5>
-      <p>Activos Totales</p>
-    </div>
-  </ion-card> -->
-
   <!-- ====== Máquinas ====== -->
   <ion-list *ngIf="!loading && machines.length > 0">
     <div class="glass-content">
@@ -41,6 +29,7 @@
                 <ion-card-subtitle>{{m.id}}</ion-card-subtitle>
               </ion-card-header>
               <ion-card-content>
+                
                 <div class="data">
                   <strong>Piso:</strong> {{m.piso }} <br>
                   <strong>Cantidad Maquina:</strong> {{m.cantMaquina}}
