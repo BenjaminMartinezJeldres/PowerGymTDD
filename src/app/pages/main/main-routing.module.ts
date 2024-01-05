@@ -1,3 +1,4 @@
+//main-routing.module.ts
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -16,6 +17,7 @@ const routes: Routes = [
         path: 'profile',
         loadChildren: () => import('./profile/profile.module').then(m => m.ProfilePageModule)
       }
+      
     ]
   },
 

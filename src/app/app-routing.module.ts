@@ -1,3 +1,4 @@
+//app-routing.module.ts
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { NoAuthGuard } from './guards/no-auth.guard';
@@ -17,6 +18,14 @@ const routes: Routes = [
   {
     path: 'main',
     loadChildren: () => import('./pages/main/main.module').then( m => m.MainPageModule), canActivate:[AuthGuard]
+  },
+  {
+    path: 'nutrition',
+    loadChildren: () => import('./pages/main/nutrition/nutrition.module').then(m => m.NutritionPageModule)
+  },
+  {
+    path: 'camera',
+    loadChildren: () => import('./pages/main/camera/camera.module').then(m => m.CameraPageModule)
   },
 ];
 

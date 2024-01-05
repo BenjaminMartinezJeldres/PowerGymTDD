@@ -2,14 +2,19 @@
   <ion-tabs>
     <ion-tab-bar slot="bottom">
 
-      <ion-tab-button tab="camera" routerLink="/camera">
+      <ion-tab-button tab="camera" routerLink="/main/camera">
         <ion-icon name="qr-code-outline"></ion-icon>
         <ion-label>Cámara</ion-label>
       </ion-tab-button>
 
-      <ion-tab-button tab="add" routerLink="/add">
+      <ion-tab-button tab="add" routerLink="/machines">
         <ion-icon name="barbell-outline"></ion-icon>
         <ion-label>Máquinas</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="add" routerLink="/routine">
+        <ion-icon name="bicycle"></ion-icon>
+        <ion-label>Rutinas</ion-label>
       </ion-tab-button>
 
       <ion-tab-button tab="home" routerLink="/home">
@@ -17,7 +22,7 @@
         <ion-label>Inicio</ion-label>
       </ion-tab-button>
 
-      <ion-tab-button tab="settings" routerLink="/settings">
+      <ion-tab-button tab="settings" routerLink="/main/nutrition">
         <ion-icon name="nutrition-outline"></ion-icon>
         <ion-label>Nutrición</ion-label>
       </ion-tab-button>
