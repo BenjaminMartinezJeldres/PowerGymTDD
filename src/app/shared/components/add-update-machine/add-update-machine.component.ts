@@ -20,6 +20,12 @@ export class AddUpdateMachineComponent  implements OnInit {
     name: new FormControl('', [Validators.required, Validators.minLength(4)]),
     piso: new FormControl(null, [Validators.required, Validators.min(1),Validators.max(3)]),
     cantMaquina: new FormControl(null, [Validators.required, Validators.min(0),Validators.max(5)]),
+    tipoMaquina: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    musculo: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    instrucciones: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    precauciones: new FormControl('', [Validators.required, Validators.minLength(4)]),
+
+    
   })
 
   firebaseSvc = inject(FirebaseService);
@@ -64,6 +70,7 @@ submit(){
   // ======== Crear Máquinas =======
  async createMachine() {
  
+      
 
       let path = `users/${this.user.uid}/machines`
 
@@ -88,6 +95,7 @@ submit(){
           color: 'success',
           position: 'middle',
           icon: 'checkmark-circle-outline'
+          
         })
         
       }).catch(error => {
@@ -104,8 +112,12 @@ submit(){
       }).finally(() => {
         loading.dismiss();
       })
+      
+      instrucciones: this.form.value.instrucciones
+     
 
   }
+  
 
  // ======== Actualizar Máquina =======
   async updateMachine() {

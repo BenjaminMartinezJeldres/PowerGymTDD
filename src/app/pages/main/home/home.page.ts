@@ -16,6 +16,10 @@ import { Router } from '@angular/router';
 
 export class HomePage implements OnInit {
 
+
+  filteredMachines: Machine[] = []; // Esta será la lista filtrada que se mostrará
+  filterText: string = ''; // Este será el texto de búsqueda
+  searchTerm: string = '';
   firebaseSvc = inject(FirebaseService);
   utilsSvc = inject(UtilsService);
 
@@ -48,29 +52,32 @@ export class HomePage implements OnInit {
   }
 
   // ====== Obtener Máquinas =====
-  getMachines() {
-    let path = `users/${this.user().uid}/machines`;
+  // ====== Obtener Máquinas =====
+getMachines() {
+  let path = `users/${this.user().uid}/machines`;
 
-    this.loading = true;
+  this.loading = true;
 
-    let query = [
-      orderBy('cantMaquina', 'desc'),
-      // where('cantMaquina', '>', 30)   
-    ]
+  let query = [
+    orderBy('cantMaquina', 'desc'),
+    // Puedes incluir otras condiciones aquí si es necesario
+  ];
 
+  let sub = this.firebaseSvc.getCollectionData(path, query).subscribe({
+    next: (res: any) => {
+      console.log(res);
+      this.machines = res;
+      this.filteredMachines = [...this.machines]; // Aquí se hace la copia inicial
+      this.loading = false;
+      sub.unsubscribe();
+    },
+    error: err => {
+      console.error(err);
+      this.loading = false;
+    }
+  });
+}
 
-
-    let sub = this.firebaseSvc.getCollectionData(path, query).subscribe({
-      next: (res: any) => {
-        console.log(res);
-        this.machines = res;
-
-        this.loading = false;
-
-        sub.unsubscribe();
-      }
-    })
-  }
 
   // ====== Agregar o actualizar máquina =====
   async addUpdateMachine(machine?: Machine) {
@@ -157,7 +164,25 @@ openMachineDetails(machineId: string) {
   this.router.navigate(['/machine-details', { id: machineId }]);
 }
 
-  filterMachines(e) {
-    console.log(e)
+//barra buscador filtrado
+filterMachines(event) {
+  const val = event.target.value.toLowerCase();
+  if (val && val.trim() !== '') {
+    this.filteredMachines = this.machines.filter(machine => {
+      return machine.name.toLowerCase().includes(val) || machine.piso.toString().includes(val);
+    });
+  } else {
+    this.filteredMachines = this.machines;
   }
+}
+
+
+
+
+
+
+
+
+
+  
 }

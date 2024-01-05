@@ -16,6 +16,21 @@
 
   <ion-searchbar showCancelButton cancelButtonText="Cancelar" (ionInput)="filterMachines($event)" animated="true" placeholder="Buscar máquinas..."></ion-searchbar>
 
+
+<!-- Utiliza filteredMachines aquí -->
+<ion-list *ngIf="!loading && filteredMachines.length > 0">
+  <div class="glass-content">
+    <ion-grid class="glass-content">
+      <ion-row>
+        <!-- Cambia machines a filteredMachines aquí -->
+        <ion-col size-lg="4" size-md="6" size-sm="12" size="12" *ngFor="let m of filteredMachines">
+          <!-- ... resto de tu card -->
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-list>
+
   <!-- ====== Máquinas ====== -->
   <ion-list *ngIf="!loading && machines.length > 0">
     <div class="glass-content">
@@ -31,9 +46,24 @@
               <ion-card-content>
                 
                 <div class="data">
-                  <strong>Piso:</strong> {{m.piso }} <br>
-                  <strong>Cantidad Maquina:</strong> {{m.cantMaquina}}
+                  <strong>Piso:</strong> {{m.piso }} <br><br>
+                  <strong>Cantidad Maquinas por piso:</strong> {{m.cantMaquina}} <br><br>
+                  <div class="data">
+                    <strong>Músculo:</strong>{{m.musculo}} <br><br>
+                  </div>
                 </div>
+                <div class="data">
+                  <strong>Tipo de Maquina:</strong> {{m.tipoMaquina}}<br><br>
+                </div>
+                
+                <div class="data">
+                  <strong>Instrucciones:</strong>{{m.instrucciones}}  <br><br>
+                </div>
+                <div class="data">
+                  <strong>Precauciones:</strong> {{m.precauciones}}<br><br>
+                </div>
+                
+                
               </ion-card-content>
               <ion-row class="ion-align-items-center">
                 <!-- Botones de editar y eliminar -->

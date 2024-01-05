@@ -60,8 +60,68 @@
            <div *ngIf="form.controls.cantMaquina.errors?.['min']">La cantidad mínima debe ser 0</div>
            <div *ngIf="form.controls.piso.errors?.['max']">El piso mmáximo debe ser 5</div>
         </div>
+       <!--======== Tipo de maquina   ========-->
+
+       <app-custom-input
+       [control]="form.controls.tipoMaquina"
+       type="text"
+       label="Tipo de maquina "
+       ></app-custom-input>
+ 
+       <div class="validators" *ngIf="form.controls.tipoMaquina.errors && form.controls.tipoMaquina.touched">
+       <div *ngIf="form.controls.tipoMaquina.errors?.['required']">Este campo es requerido</div>
+       <div *ngIf="form.controls.tipoMaquina.errors?.['minlength']">Las tipoMaquina deben tener al menos 4 caracteres</div>
+       </div>
        
 
+
+      <!--======== Musculo ========-->
+
+      <app-custom-input
+      [control]="form.controls.musculo"
+      type="text"
+      label="Musculo"
+      ></app-custom-input>
+
+      <div class="validators" *ngIf="form.controls.musculo.errors && form.controls.musculo.touched">
+      <div *ngIf="form.controls.musculo.errors?.['required']">Este campo es requerido</div>
+      <div *ngIf="form.controls.musculo.errors?.['minlength']">Las Musculo deben tener al menos 4 caracteres</div>
+      </div>
+      
+
+      <!--======== Instrucciones ========-->
+      <app-custom-input
+      [control]="form.controls.instrucciones"
+      type="text"
+      label="Instrucciones"
+      ></app-custom-input>
+
+      <div class="validators" *ngIf="form.controls.instrucciones.errors && form.controls.instrucciones.touched">
+      <div *ngIf="form.controls.instrucciones.errors?.['required']">Este campo es requerido</div>
+      <div *ngIf="form.controls.instrucciones.errors?.['minlength']">Las instrucciones deben tener al menos 4 caracteres</div>
+      </div>
+      
+      <!--======== Precauciones ========-->
+
+
+      <app-custom-input
+      [control]="form.controls.precauciones"
+      type="text"
+      label="Precauciones"
+      ></app-custom-input>
+
+      <div class="validators" *ngIf="form.controls.precauciones.errors && form.controls.precauciones.touched">
+      <div *ngIf="form.controls.precauciones.errors?.['required']">Este campo es requerido</div>
+      <div *ngIf="form.controls.precauciones.errors?.['minlength']">Las precauciones deben tener al menos 4 caracteres</div>
+      </div>
+      
+
+
+
+
+
+
+<!--======== Boton ========-->
   
            <ion-button  mode="ios" class="ion-margin" type="submit" [disabled]="form.invalid">
             {{machine ? 'Actualizar Máquina' : 'Agregar Máquina'}}

@@ -1,9 +1,9 @@
 export interface Machine{
     name: string,
-    /*tipoMaquina: string,
-    musculo: string,
     instrucciones: string,
-    precauciones: string,*/
+    tipoMaquina: string,
+    musculo: string,
+   precauciones: string,
     cantMaquina:number,
     piso: number,
     image: string
